@@ -26,14 +26,12 @@ function getPosition(pos) {
 }
 
 function staticLoadPlaces(lat, long) {
-  console.log("staticLoadPlaces");
-  console.log(`${lat} : ${long}`);
   return [
     {
       name: "Pokèmon",
       location: {
-        lat: lat,
-        lng: long,
+        lat: 51.022704,
+        lng: 7.561633,
       },
     },
   ];
@@ -84,7 +82,6 @@ function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
   places.forEach((place) => {
-    console.log(`${place.location.lat} : ${place.location.lng}`);
     let latitude = place.location.lat;
     let longitude = place.location.lng;
 
