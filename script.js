@@ -1,11 +1,12 @@
 window.onload = () => {
   const button = document.querySelector('button[data-action="change"]');
-  let lat, long;
   navigator.geolocation.getCurrentPosition(
     (pos) => {
       lat = pos.coords.latitude;
-      lang = pos.coords.longitude;
+      long = pos.coords.longitude;
       button.innerText = pos.coords.latitude + " " + pos.coords.longitude;
+      let places = staticLoadPlaces(lat, long);
+      renderPlaces(places);
     },
     () => {
       button.innerText = "Error";
@@ -13,8 +14,8 @@ window.onload = () => {
   );
   //button.innerText = "﹖";
 
-  let places = staticLoadPlaces(lat, long);
-  renderPlaces(places);
+  //   let places = staticLoadPlaces(lat, long);
+  //   renderPlaces(places);
 };
 
 let id = navigator.geolocation.watchPosition(getPosition);
@@ -25,6 +26,8 @@ function getPosition(pos) {
 }
 
 function staticLoadPlaces(lat, long) {
+  console.log("staticLoadPlaces");
+  console.log(`${lat} : ${long}`);
   return [
     {
       name: "Pokèmon",
@@ -81,6 +84,7 @@ function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
   places.forEach((place) => {
+    console.log(`${place.location.lat} : ${place.location.lng}`);
     let latitude = place.location.lat;
     let longitude = place.location.lng;
 
