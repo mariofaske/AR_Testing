@@ -1,0 +1,11 @@
+**Beschreibung**  
+`Positionen in einem Szenario sind eine Auswahl von Inhalten zugeordnet. Je nach Position präsentiert das System dem Nutzer die vorher festgelegten Inhalte.`
+
+**Exit** 
+`Das System präsentiert dem Nutzer abhängig von seiner Position die passenden Inhalte.`
+
+**Fail** 
+`Das System präsentiert keine oder unpassende Inhalte an einer oder mehrerer Positionen.`
+
+**Fallback** 
+`Da dies eine essentielle Funktion des Systems darstellt, gibt es hier kein Fallback.`
