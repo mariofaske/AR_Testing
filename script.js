@@ -1,8 +1,13 @@
 window.onload = () => {
   const button = document.querySelector('button[data-action="change"]');
-  navigator.geolocation.getCurrentPosition(() => {
-    button.innerText = pos.coords.latitude + " " + pos.coords.longitude;
-  });
+  navigator.geolocation.getCurrentPosition(
+    () => {
+      button.innerText = pos.coords.latitude + " " + pos.coords.longitude;
+    },
+    () => {
+      button.innerText = "Error";
+    }
+  );
   //button.innerText = "﹖";
 
   let places = staticLoadPlaces();
