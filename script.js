@@ -1,6 +1,9 @@
 window.onload = () => {
   const button = document.querySelector('button[data-action="change"]');
-  button.innerText = "﹖";
+  navigator.geolocation.getCurrentPosition(() => {
+    button.innerText = pos.coords.latitude + " " + pos.coords.longitude;
+  });
+  //button.innerText = "﹖";
 
   let places = staticLoadPlaces();
   renderPlaces(places);
