@@ -1,3 +1,6 @@
+var lat = 0;
+var long = 0;
+
 window.onload = () => {
   const button = document.querySelector('button[data-action="change"]');
   navigator.geolocation.getCurrentPosition(
@@ -22,14 +25,14 @@ let id = navigator.geolocation.watchPosition(getPosition);
 
 function getPosition(pos) {
   const button = document.querySelector('button[data-action="change"]');
-  let distance = calculateDistance(
-    oldLat,
-    oldLong,
+  var distance = calculateDistance(
+    lat,
+    long,
     pos.coords.latitude,
     pos.coords.longitude
   );
-  let oldLat = pos.coords.latitude;
-  let oldLong = pos.coords.longitude;
+  lat = pos.coords.latitude;
+  long = pos.coords.longitude;
   let info = `${pos.coords.latitude} :  ${pos.coords.longitude} : ${distance}`;
   button.innerText = info;
 }
