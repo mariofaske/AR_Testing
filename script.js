@@ -7,7 +7,13 @@ window.onload = () => {
     (pos) => {
       lat = pos.coords.latitude;
       long = pos.coords.longitude;
-      button.innerText = pos.coords.latitude + " " + pos.coords.longitude;
+      button.innerText =
+        pos.coords.latitude +
+        " " +
+        pos.coords.longitude +
+        " " +
+        pos.coords.accuracy +
+        "m";
       let places = staticLoadPlaces(lat, long);
       renderPlaces(places);
     },
@@ -33,7 +39,9 @@ function getPosition(pos) {
   );
   lat = pos.coords.latitude;
   long = pos.coords.longitude;
-  let info = `${pos.coords.latitude} :  ${pos.coords.longitude} : ${distance}`;
+  let info = `${pos.coords.latitude} : ${pos.coords.longitude} : ${
+    distance * 1000
+  }m : ${pos.coords.accuracy}m`;
   button.innerText = info;
 }
 
