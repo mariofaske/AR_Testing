@@ -17,6 +17,13 @@ window.onload = () => {
   renderPlaces(places);
 };
 
+let id = navigator.geolocation.watchPosition(getPosition);
+
+function getPosition(pos) {
+  const button = document.querySelector('button[data-action="change"]');
+  button.innerText = pos.coords.latitude + " " + pos.coords.longitude;
+}
+
 function staticLoadPlaces(lat, long) {
   return [
     {
